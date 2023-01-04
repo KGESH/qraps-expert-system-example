@@ -1,0 +1,23 @@
+version: "3.8"
+
+services:
+  platform:
+    image: baram987/qraps:latest
+    container_name: platform
+    ports:
+      - "80:8080"
+    networks:
+      - qraps-network
+
+  expert:
+    #    여기에 본인이 빌드한 이미지 작성하면 됩니다.
+    image: baram987/expert:latest
+    container_name: expert
+    ports:
+      - "5001:5001"
+    networks:
+      - qraps-network
+
+networks:
+  qraps-network:
+    driver: bridge
